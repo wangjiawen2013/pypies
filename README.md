@@ -36,4 +36,4 @@ The plot will be saved in the currently directory. To learn more, please read th
 ## Limitations
 - The plot is not interactive and must be saved locally.
 ## License
-This project is licensed under the ![MIT license]("LICENSE")
+This project is licensed under the ![MIT license](LICENSE)
