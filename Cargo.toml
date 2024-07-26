@@ -3,7 +3,7 @@ cargo-features = ["edition2024"]
 # The name of the package. This is the name that `pip install` and `pip show` will use.
 # It can be different from the module name. Here we use the same name for convinence.
 name = "pypies"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 
 [lib]
