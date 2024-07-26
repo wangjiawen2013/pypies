@@ -8,12 +8,13 @@ Pypies is built upon [polars](https://github.com/pola-rs/polars) and [plotters](
 * `scatterpie`: Create scatterpie plots.
 ## Installation
 You can install it with  pip:
+
 `pip install pypies`
 ## Gallery
 Here is an example of scatter pie plot:
 
 ![scatter pie](examples/visium.png)
-# Usage
+## Usage
 For users from pandas:
 ```
 import pandas as pd
