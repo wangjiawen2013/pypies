@@ -11,7 +11,8 @@ Download the released binary package and install via pip:
 `pip install xxxx.whl`
 ## Gallery
 Here is an example of scatter pie plot:
-![scatter pie]("examples/visium.png")
+
+![scatter pie](examples/visium.png)
 # Usage
 For users from pandas:
 ```
