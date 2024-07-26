@@ -1,2 +1,1 @@
-# pypies
-scatter pie plot in python
+# pypies: scatter pie plot in python
