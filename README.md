@@ -7,8 +7,8 @@ Pypies is built upon [polars](https://github.com/pola-rs/polars) and [plotters](
 ## Current tools
 * `scatterpie`: Create scatterpie plots.
 ## Installation
-Download the released binary package and install via pip:
-`pip install xxxx.whl`
+You can install it with  pip:
+`pip install pypies`
 ## Gallery
 Here is an example of scatter pie plot:
 
@@ -36,4 +36,4 @@ The plot will be saved in the currently directory. To learn more, please read th
 ## Limitations
 - The plot is not interactive and must be saved locally.
 ## License
-This project is licensed under the ![MIT license](LICENSE)
+This project is licensed under the [MIT license](LICENSE)

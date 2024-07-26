@@ -49,10 +49,10 @@ fn chart_elements(dataset: &DataFrame, x: &str, y: &str, pie_scale: f64, area_wi
     let mut y_start = y_min - radius;
     let mut y_end = y_max + radius;
     // x、y 轴向两边再各扩展 5%，作为边界留白
-    let x_start = x_start - (x_end - x_start)*0.05;
-    let x_end = x_end + (x_end - x_start)*0.05;
-    let y_start = y_start - (y_end - y_start)*0.05;
-    let y_end = y_end + (y_end - y_start)*0.05;
+    x_start = x_start - (x_end - x_start)*0.05;
+    x_end = x_end + (x_end - x_start)*0.05;
+    y_start = y_start - (y_end - y_start)*0.05;
+    y_end = y_end + (y_end - y_start)*0.05;
     // Set plotting area and scale factor (ratio) to match x, y limit to pixel.
     let ratio = area_width as f64 / (x_end-x_start);
     let area_height = (ratio * (y_end-y_start)) as u32;
@@ -95,7 +95,8 @@ pub fn scatterpie(data: DataFrame,
               label_threshold: f64,
               donut_radius: Option<f64>,
               bg_circle_radius: Option<f64>,
-              area_width: u32
+              area_width: u32,
+              mut file_name: String
             ) -> Result<(), Box<dyn std::error::Error>> {
     // Set palette, colors will be cyclicly used if the number if items > 20
     let colors = colors(&vars)?;
@@ -119,7 +120,8 @@ pub fn scatterpie(data: DataFrame,
     let (area_width, area_height, pies) = chart_elements(&dataset, x, y, pie_scale, area_width)?;
     
     // Plot and save image.
-    let mut root = SVGBackend::new("output.svg", (area_width+200, area_height)).into_drawing_area();
+    file_name.push_str(".svg");
+    let mut root = SVGBackend::new(&file_name, (area_width+200, area_height)).into_drawing_area();
     let (left, right) = root.split_horizontally(area_width);
     for i in pies.iter() {
         // Don't show labels, we will use legend later.

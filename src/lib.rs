@@ -46,8 +46,12 @@ use pyo3_polars::PyDataFrame;
 /// ```
 #[pyfunction]
 // Keyword arguments with default value must be at the end!
-#[pyo3(signature=(data, x, y, vars, pie_scale=1.0, font_size=25, sorted_by_radius=false, legend_name="type", long_format=false, label_radius=None, label_show_ratio=true, label_threshold=0.0, donut_radius=None, bg_circle_radius=None, area_width=600))]
-pub fn scatterpie(data: PyDataFrame,
+#[pyo3(signature=(data, x, y, vars, pie_scale=1.0, font_size=25, sorted_by_radius=false,
+        legend_name="type", long_format=false, label_radius=None,
+        label_show_ratio=true, label_threshold=0.0, donut_radius=None,
+        bg_circle_radius=None, area_width=600, file_name=String::from("scatterpie")))]
+
+        pub fn scatterpie(data: PyDataFrame,
               x: &str,
               y: &str,
               vars: Vec<String>,  // Cannot be Vec<&str>
@@ -62,11 +66,15 @@ pub fn scatterpie(data: PyDataFrame,
               label_threshold: f64,
               donut_radius: Option<f64>,
               bg_circle_radius: Option<f64>,
-              area_width: u32
+              area_width: u32,
+              file_name: String
             ) -> PyResult<()> {
     // Convert python polars dataframe to rust polars dataframe
     let data: DataFrame = data.into();
-    plot::scatterpie(data, x, y, vars, pie_scale, font_size, sorted_by_radius, legend_name, long_format, label_radius, label_show_ratio, label_threshold, donut_radius, bg_circle_radius, area_width)
+    plot::scatterpie(data, x, y, vars, pie_scale, font_size, sorted_by_radius,
+        legend_name, long_format, label_radius, label_show_ratio,
+        label_threshold, donut_radius, bg_circle_radius, area_width,
+        file_name)
         .unwrap();
 
     Ok(())
